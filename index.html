@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Todo Plug</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="timer/css/style.css">
+    </head>
+    <body>
+        <!-- <div class="">
+            <object>
+                <embed type="application/x-shockwave-flash" src="./time.swf" width="373" height="150" align="center" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer">
+            </object>
+        </div> -->
+        <div id="clock" class="light">
+            <div class="display">
+                <div class="weekdays"></div>
+                <div class="ampm"></div>
+                <div class="alarm"></div>
+                <div class="digits"></div>
+            </div>
+        </div>
+
+        <div style="width:373">
+            <section ng-controller="todolistcontroller">
+                 <form class="input-group input-group-lg">
+                     <input class="form-control" ng-model="text">
+                     <span class="input-group-btn">
+                         <button class="btn btn-success" ng-click="add()"> 增加 </button>
+                     </span>
+                 </form>
+
+                 <ul class="list-group">
+                     <li class="list-group-item" ng-repeat="item in todolist" ng-class="{'done': item.done}">
+                         <button ng-click="delete(item)" class="close" aria-label="close">
+                             <span aria-hidden="true">&times;</span>
+                             <span class="sr-only"> Close </span>
+                         </button>
+                         <div class="checkbox">
+                             <label>
+                                 <input ng-model="item.done" type="checkbox">
+                                 <span>{{item.text}}</span>
+                             </label>
+                         </div>
+                     </li>
+                 </ul>
+
+                 <p>
+                     总共 <strong>{{todolist.length}}</strong>个任务，已完成<strong>{{doneCount()}}</strong>个
+                 </p>
+            </section>
+        </div>
+
+        <script src="js/angular.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+		<script src="timer/js/moment.min.js"></script>
+		<script src="timer/js/script.js"></script>
+        <script src="js/todolist.js"></script>
+    </body>
+</html>
