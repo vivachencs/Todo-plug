@@ -6,10 +6,7 @@ todoApp.controller('todolistcontroller', ['$scope', function($scope){
     $scope.text = ''
 
     // 默认清单
-    $scope.todolist = [{
-        text: 'hello world',
-        done: false
-    }]
+    $scope.todolist = []
 
     // 增添任务
     $scope.add = function() {
